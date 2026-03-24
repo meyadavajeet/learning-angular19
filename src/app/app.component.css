@@ -1,0 +1,39 @@
+.layout-wrapper {
+	background: linear-gradient(180deg, #f7f8fa 0%, #eef2f7 100%);
+}
+
+.sidebar {
+	background-color: #1f2937;
+	color: #f8fafc;
+	height: 100vh;
+	overflow-y: auto;
+}
+
+.sidebar .nav-link {
+	color: #e5e7eb;
+	border-radius: 0.5rem;
+	padding: 0.5rem 0.75rem;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link:focus {
+	background-color: rgba(255, 255, 255, 0.12);
+	color: #ffffff;
+}
+
+.content-area {
+	background-color: #ffffff;
+}
+
+.footer {
+	background-color: #111827;
+	color: #d1d5db;
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 767.98px) {
+	.sidebar {
+		height: auto;
+		max-height: 50vh;
+	}
+}
