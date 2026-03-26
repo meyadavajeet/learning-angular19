@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
 export class BatchMasterCrudComponent {
   http = inject(HttpClient);
   newBatchObj: Batch = new Batch();
-  batchList: Batch[] = [];
+  // batchList: Batch[] = [];
+  batchList = signal<Batch[]>([]);
 
   constructor() {
     this.getAllBatches();
@@ -28,6 +29,7 @@ export class BatchMasterCrudComponent {
         next: (result: any) => {
           // debugger;
           alert('Batch Created Successfully.');
+          this.getAllBatches();
         },
         error: (error: any) => {
           // debugger;
@@ -40,12 +42,65 @@ export class BatchMasterCrudComponent {
       .get('https://api.freeprojectapi.com/api/FeesTracking/batches')
       .subscribe({
         next: (result: any) => {
-          this.batchList = result;
+          this.batchList.set(result);
         },
         error: (error: any) => {
           alert(error.error.message);
         },
       });
+  }
+  onEditBatch(data: Batch) {
+    // this two line for detaching the reference
+    let stringData = JSON.stringify(data);
+    let parsedData = JSON.parse(stringData);
+    this.newBatchObj = parsedData;
+  }
+
+  onUpdateBatch() {
+    this.http
+      .put(
+        'https://api.freeprojectapi.com/api/FeesTracking/batches/'+this.newBatchObj.batchId,
+        this.newBatchObj,
+      )
+      .subscribe({
+        next: (result: any) => {
+          // debugger;
+          alert('Batch Updated Successfully.');
+          this.getAllBatches();
+          this.onClearBatch();
+        },
+        error: (error: any) => {
+          // debugger;
+          alert(error.error.message);
+        },
+      });
+  }
+
+  onDeleteBatch(id:number) {
+    let isDeleteable = confirm("Are you sure want to delete");
+    if(isDeleteable){
+      this.http
+      .delete(
+        'https://api.freeprojectapi.com/api/FeesTracking/batches/'+id,
+      )
+      .subscribe({
+        next: (result: any) => {
+          // debugger;
+          alert('Batch Deleted Successfully.');
+          this.getAllBatches();
+        },
+        error: (error: any) => {
+          // debugger;
+          alert(error.error.message);
+        },
+      });
+    }
+  }
+
+  onClearBatch(){
+    // clear the form
+    this.newBatchObj = new Batch();   
+
   }
 }
 

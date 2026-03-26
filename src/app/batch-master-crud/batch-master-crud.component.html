@@ -1,4 +1,5 @@
-<div class="py-3 px-3 px-md-4">
+<div class="py-3 px-3 px-md-4 text-center">
+  <hr class="my-3" />
   <h3 class="mb-2">Batch Master CRUD</h3>
   <a
     href="https://freeprojectapi.com/api.html"
@@ -29,14 +30,24 @@
                 </tr>
               </thead>
               <tbody>
-                @for (item of batchList; track $index) {
+                @for (item of batchList(); track $index) {
                   <tr>
                     <td>{{ item.batchId }}</td>
                     <td>{{ item.batchName }}</td>
                     <td>{{ item.createdDate }}</td>
                     <td>
-                      <button class="btn btn-sm btn-primary me-2">Edit</button>
-                      <button class="btn btn-sm btn-danger">Delete</button>
+                      <button
+                        class="btn btn-sm btn-primary me-2"
+                        (click)="onEditBatch(item)"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        class="btn btn-sm btn-danger"
+                        (click)="onDeleteBatch(item.batchId)"
+                      >
+                        Delete
+                      </button>
                     </td>
                   </tr>
                 }
@@ -66,29 +77,43 @@
                 placeholder="Enter batch name"
               />
             </div>
-            <div class="mb-3">
-              <label for="createdAt" class="form-label">Created At</label>
-              <input
-                id="createdAt"
-                name="createdAt"
-                type="date"
-                class="form-control"
-                [(ngModel)]="newBatchObj.createdDate"
-              />
-            </div>
+            @if (!newBatchObj.batchId) {
+              <div class="mb-3">
+                <label for="createdAt" class="form-label">Created At</label>
+                <input
+                  id="createdAt"
+                  name="createdAt"
+                  type="date"
+                  class="form-control"
+                  [(ngModel)]="newBatchObj.createdDate"
+                />
+              </div>
+            }
 
-            <div class="d-grid gap-2">
+            @if (newBatchObj.batchId) {
+              <button
+                type="button"
+                (click)="onUpdateBatch()"
+                class="btn btn-success btn-sm me-2"
+              >
+                Update
+              </button>
+            } @else {
               <button
                 type="button"
                 (click)="onSaveBatch()"
-                class="btn btn-primary btn-sm"
+                class="btn btn-primary btn-sm me-2"
               >
                 Save
               </button>
-              <button type="button" class="btn btn-outline-secondary btn-sm">
-                Clear
-              </button>
-            </div>
+            }
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-sm"
+              (click)="onClearBatch()"
+            >
+              Clear
+            </button>
           </form>
         </div>
       </div>
