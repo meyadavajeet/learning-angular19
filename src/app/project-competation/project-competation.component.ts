@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MasterService } from '../service/master.service';
 
 @Component({
   selector: 'app-project-competation',
@@ -21,7 +22,9 @@ export class ProjectCompetationComponent {
   http = inject(HttpClient);
   competationList = signal<projectList[]>([]);
 
-  constructor() {
+  constructor(private masterService: MasterService) {
+    //using contructor dependency injection calling MasterService
+    masterService.addTwoNumber(20, 30);
     this.getAllCopetation();
   }
 
@@ -92,7 +95,9 @@ export class ProjectCompetationComponent {
     let isDeleteable = confirm('Are you sure want to delete');
     if (isDeleteable) {
       this.http
-        .delete('https://api.freeprojectapi.com/api/ProjectCompetition/delete/' + id)
+        .delete(
+          'https://api.freeprojectapi.com/api/ProjectCompetition/delete/' + id,
+        )
         .subscribe({
           next: (result: any) => {
             // debugger;
