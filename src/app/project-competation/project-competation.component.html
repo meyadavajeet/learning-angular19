@@ -1,0 +1,163 @@
+<div class="py-3 px-3 px-md-4 text-center">
+  <hr class="my-3" />
+  <h3 class="mb-2">Project Competation | Reactive Form</h3>
+  <a
+    href="https://freeprojectapi.com/api.html"
+    target="_blank"
+    class="small text-muted mb-3 d-inline-block"
+    >API Documentation | Project Competation APIs</a
+  >
+  <hr class="my-3" />
+</div>
+
+<div class="container-fluid px-3 px-md-4 pb-4">
+  <div class="row g-3">
+    <!-- Left: Table Section (8 columns) -->
+    <div class="col-12 col-lg-8">
+      <div class="card shadow-sm">
+        <div class="card-header bg-light">
+          <h5 class="mb-0">Project Competation List</h5>
+        </div>
+        <div class="card-body p-0">
+          <div class="table-responsive">
+            <table class="table table-hover mb-0">
+              <thead class="table-light">
+                <tr>
+                  <th>ID</th>
+                  <th>Project Title</th>
+                  <th>Description</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Status</th>
+                  <th colspan="2">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                @for (item of competationList(); track $index) {
+                  <tr>
+                    <td>{{ $index + 1 }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.startDate }}</td>
+                    <td>{{ item.endDate }}</td>
+                    <td>{{ item.status }}</td>
+                    <td>
+                      <button
+                        class="btn btn-sm btn-primary"
+                        (click)="onEdit(item)"
+                      >
+                        Edit
+                      </button>
+                    </td>
+                    <td>
+                      <button
+                        class="btn btn-sm btn-danger"
+                        (click)="onDelete(item.competitionId)"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Right: Form Section (4 columns) -->
+    <div class="col-12 col-lg-4">
+      <div class="card shadow-sm">
+        <div class="card-header bg-light">
+          <h5 class="mb-0">Add / Edit Project Competation</h5>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="projectForm">
+            <div class="mb-3">
+              <label for="title" class="form-label">Project Title</label>
+              <input
+                id="title"
+                name="title"
+                type="text"
+                class="form-control"
+                placeholder="Enter project title"
+                formControlName="title"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                class="form-control"
+                placeholder="Enter project description"
+                formControlName="description"
+              ></textarea>
+            </div>
+            @if (!projectForm.value.competitionId) {
+              <div class="mb-3">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input
+                  id="startDate"
+                  name="startDate"
+                  type="date"
+                  class="form-control"
+                  formControlName="startDate"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="endDate" class="form-label">End Date</label>
+                <input
+                  id="endDate"
+                  name="endDate"
+                  type="date"
+                  class="form-control"
+                  formControlName="endDate"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select
+                  id="status"
+                  name="status"
+                  class="form-select"
+                  formControlName="status"
+                >
+                  <option value="" disabled selected>Select status</option>
+                  <option value="planned">Planned</option>
+                  <option value="inProgress">In Progress</option>
+                  <option value="completed">Completed</option>
+                </select>
+              </div>
+            }
+            @if (projectForm.value.competitionId) {
+              <button
+                type="button"
+                (click)="updateProjectCompetation()"
+                class="btn btn-success me-2"
+              >
+                Update
+              </button>
+            } @else {
+              <button
+                type="submit"
+                (click)="saveProjectCompetation()"
+                class="btn btn-primary"
+              >
+                Save
+              </button>
+            }
+
+            <button
+              type="button"
+              class="btn btn-outline-secondary"
+              (click)="onClear()"
+            >
+              Clear
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,6 +3,7 @@ import { UserMasterComponent } from './user-master/user-master.component';
 import { AppComponent } from './app.component';
 import { ReactiveUserComponent } from './reactive-user/reactive-user.component';
 import { BatchMasterCrudComponent } from './batch-master-crud/batch-master-crud.component';
+import { ProjectCompetationComponent } from './project-competation/project-competation.component';
 
 export const routes: Routes = [
   {
@@ -16,5 +17,9 @@ export const routes: Routes = [
   {
     path:"batch",
     component: BatchMasterCrudComponent
+  },
+  {
+    path:"project-competation",
+    component: ProjectCompetationComponent
   }
 ];
