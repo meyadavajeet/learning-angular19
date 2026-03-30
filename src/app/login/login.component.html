@@ -1,0 +1,31 @@
+<div class="parent">
+  <div class="login-card">
+    <h3 class="title">Login</h3>
+
+    <form autocomplete="off" >
+      <div class="mb-3">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Enter email"
+          required
+          [(ngModel)]="loginObj.email"
+          name="email"
+        />
+      </div>
+
+      <div class="mb-3">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Enter password"
+          required
+          [(ngModel)]="loginObj.password"
+          name="password"
+        />
+      </div>
+
+      <button type="submit" class="btn btn-custom w-100" (click)="doLogin()">Login</button>
+    </form>
+  </div>
+</div>
