@@ -2,30 +2,45 @@
   <div class="login-card">
     <h3 class="title">Login</h3>
 
-    <form autocomplete="off" >
+    <form #loginForm="ngForm" (ngSubmit)="doLogin(loginForm)" novalidate>
       <div class="mb-3">
         <input
           type="email"
           class="form-control"
+          [class.is-invalid]="(emailControl.touched || loginForm.submitted) && emailControl.invalid"
           placeholder="Enter email"
           required
-          [(ngModel)]="loginObj.email"
-          name="email"
+          [(ngModel)]="loginObj.emailId"
+          name="emailId"
+          #emailControl="ngModel"
         />
+        <div class="invalid-feedback d-block" *ngIf="(emailControl.touched || loginForm.submitted) && emailControl.errors?.['required']">
+          Email is required.
+        </div>
+        <div class="invalid-feedback d-block" *ngIf="(emailControl.touched || loginForm.submitted) && emailControl.errors?.['email']">
+          Enter a valid email address.
+        </div>
       </div>
 
       <div class="mb-3">
         <input
           type="password"
           class="form-control"
+          [class.is-invalid]="(passwordControl.touched || loginForm.submitted) && passwordControl.invalid"
           placeholder="Enter password"
           required
           [(ngModel)]="loginObj.password"
           name="password"
+          #passwordControl="ngModel"
         />
+        <div class="invalid-feedback d-block" *ngIf="(passwordControl.touched || loginForm.submitted) && passwordControl.errors?.['required']">
+          Password is required.
+        </div>
       </div>
 
-      <button type="submit" class="btn btn-custom w-100" (click)="doLogin()">Login</button>
+      <button type="submit" class="btn btn-custom w-100" [disabled]="loginForm.invalid">
+        Login
+      </button>
     </form>
   </div>
 </div>

@@ -35,6 +35,15 @@
   color: #fff;
 }
 
+.form-control.is-invalid {
+  border: 1px solid #ffb4b4;
+}
+
+.invalid-feedback {
+  color: #ffe1e1;
+  font-size: 0.85rem;
+}
+
 .btn-custom {
   border-radius: 10px;
   background: #ffffff;
@@ -45,6 +54,12 @@
 
 .btn-custom:hover {
   background: #eee;
+}
+
+.btn-custom:disabled {
+  background: rgba(255, 255, 255, 0.55);
+  color: #5f547d;
+  cursor: not-allowed;
 }
 
 .title {

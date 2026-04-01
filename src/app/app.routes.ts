@@ -7,6 +7,7 @@ import { BatchMasterCrudComponent } from './batch-master-crud/batch-master-crud.
 import { ProjectCompetationComponent } from './project-competation/project-competation.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
+import { authGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,7 @@ export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    // canActivate:[authGuard] // add in the parent to protect all the routes
     children: [
       {
         path: 'users',
@@ -33,6 +35,7 @@ export const routes: Routes = [
       {
         path: 'batch',
         component: BatchMasterCrudComponent,
+        canActivate:[authGuard]
       },
       {
         path: 'project-competation',
