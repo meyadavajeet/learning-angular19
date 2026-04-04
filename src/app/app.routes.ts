@@ -8,6 +8,7 @@ import { ProjectCompetationComponent } from './project-competation/project-compe
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { authGuard } from './guard/auth.guard';
+import { ComponentLifeCycleComponent } from './component-life-cycle/component-life-cycle.component';
 
 export const routes: Routes = [
   {
@@ -35,16 +36,20 @@ export const routes: Routes = [
       {
         path: 'batch',
         component: BatchMasterCrudComponent,
-        canActivate:[authGuard]
+        canActivate: [authGuard],
       },
       {
         path: 'project-competation',
         component: ProjectCompetationComponent,
       },
+      {
+        path: 'component-lifecycle',
+        component: ComponentLifeCycleComponent,
+      },
     ],
   },
   {
-    path: "**",
-    component: NotfoundComponent
-  }
+    path: '**',
+    component: NotfoundComponent,
+  },
 ];
