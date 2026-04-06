@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { authGuard } from './guard/auth.guard';
 import { ComponentLifeCycleComponent } from './component-life-cycle/component-life-cycle.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 export const routes: Routes = [
   {
@@ -45,6 +46,10 @@ export const routes: Routes = [
       {
         path: 'component-lifecycle',
         component: ComponentLifeCycleComponent,
+      },
+      {
+        path: 'pipes',
+        component: PipesComponent,
       },
     ],
   },
