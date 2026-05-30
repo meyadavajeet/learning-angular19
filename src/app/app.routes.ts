@@ -10,6 +10,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { authGuard } from './guard/auth.guard';
 import { ComponentLifeCycleComponent } from './component-life-cycle/component-life-cycle.component';
 import { PipesComponent } from './pipes/pipes.component';
+import { DirectivesComponent } from './directives/directives.component';
 
 export const routes: Routes = [
   {
@@ -51,6 +52,10 @@ export const routes: Routes = [
         path: 'pipes',
         component: PipesComponent,
       },
+      {
+        path: 'directives',
+        component: DirectivesComponent
+      }
     ],
   },
   {

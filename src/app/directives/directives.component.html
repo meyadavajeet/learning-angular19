@@ -1,0 +1,152 @@
+<div class="row">
+  <div class="col-sm-12">
+    <h1>Angular Directives</h1>
+    <div class="row">
+      <p>
+        Angular directives are used to manipulate the DOM and add behavior to
+        elements in an Angular application. There are three types of directives
+        in Angular: structural directives, attribute directives, and component
+        directives.
+      </p>
+      <p>
+        Structural directives are used to change the structure of the DOM by
+        adding or removing elements. Examples of structural directives include
+        *ngIf, *ngFor, and *ngSwitch.
+      </p>
+      <p>
+        Attribute directives are used to change the appearance or behavior of an
+        element. Examples of attribute directives include ngClass, ngStyle, and
+        ngModel.
+      </p>
+      <p>
+        Component directives are used to create reusable components in an
+        Angular application. They are defined using the Component decorator and
+        can be used in templates just like any other HTML element.
+      </p>
+      <p>
+        Directives are a powerful way to add dynamic behavior to your Angular
+        applications and can help you create more interactive and responsive
+        user interfaces.
+      </p>
+
+      <hr />
+      <h2>Structural Directives</h2>
+      <p>
+        Structural directives are used to change the structure of the DOM by
+        adding or removing elements. The most commonly used structural
+        directives in Angular are *ngIf, *ngFor, and *ngSwitch.
+      </p>
+      <p>
+        The *ngIf directive is used to conditionally display an element based on
+        a boolean expression. If the expression evaluates to true, the element
+        is displayed; otherwise, it is removed from the DOM.
+      </p>
+      <p>
+        The *ngFor directive is used to iterate over a collection and create a
+        new element for each item in the collection. It is commonly used to
+        display lists of data in Angular applications.
+      </p>
+      <p>
+        The *ngSwitch directive is used to display one of several possible
+        elements based on a switch expression. It is similar to a switch
+        statement in programming languages and can be used to create complex
+        conditional logic in templates.
+      </p>
+
+      <hr />
+      <h2>Attribute Directives</h2>
+      <p>
+        Attribute directives are used to change the appearance or behavior of an
+        element. The most commonly used attribute directives in Angular are
+        ngClass, ngStyle, and ngModel.
+      </p>
+      <p>
+        The ngClass directive is used to add or remove CSS classes from an
+        element based on a condition. It can be used to dynamically change the
+        styling of an element based on user interactions or application state.
+      </p>
+      <p>
+        The ngStyle directive is used to set inline styles on an element based
+        on a condition. It can be used to dynamically change the appearance of
+        an element based on user interactions or application state.
+      </p>
+      <p>
+        The ngModel directive is used to create two-way data binding between an
+        input element and a variable in the component. It allows you to easily
+        capture user input and update the component state in real-time.
+      </p>
+
+      <hr />
+      <h2>Component Directives</h2>
+      <p>
+        Component directives are used to create reusable components in an
+        Angular application. They are defined using the Component decorator and
+        can be used in templates just like any other HTML element.
+      </p>
+      <p>
+        Component directives can have their own template, styles, and logic,
+        making them a powerful way to create modular and maintainable code in
+        Angular applications.
+      </p>
+
+      <p>
+        To create a component directive, you can use the Angular CLI to generate
+        a new component. For example, you can run the following command in your
+        terminal:
+      </p>
+      <pre><code>ng generate component my-component</code></pre>
+      <p>
+        This will create a new component called MyComponent with its own
+        template, styles, and logic. You can then use this component in your
+        templates like this:
+      </p>
+      <pre><code>&lt;app-my-component&gt;&lt;/app-my-component&gt;</code></pre>
+      <p>
+        In this example, the MyComponent will be rendered in the template where
+        the app-my-component element is used.
+      </p>
+
+      <hr />
+      <h2>Custom Directives</h2>
+      <p>
+        In addition to the built-in directives provided by Angular, you can also
+        create your own custom directives to add specific behavior to your
+        application. Custom directives can be created by implementing the
+        Directive interface and decorating the class with the Directive
+        decorator.
+      </p>
+      <p>
+        To create a custom directive, you can use the Angular CLI to generate a
+        new directive. For example, you can run the following command in your
+        terminal:
+      </p>
+      <pre><code>ng generate directive my-directive</code></pre>
+      <p>
+        This will create a new directive called MyDirective. You can then add
+        your custom logic to the directive class and use it in your templates
+        like this:
+      </p>
+      <pre><code>&lt;div appMyDirective&gt;This div will have the behavior defined in MyDirective&lt;/div&gt;</code></pre>
+      <p>
+        In this example, the MyDirective will be applied to the div element, and
+        any behavior defined in the directive will be executed when the element
+        is rendered.
+      </p>
+
+      <hr />
+      <h2>Summary</h2>
+      <p>
+        Angular directives are a powerful way to manipulate the DOM and add
+        behavior to elements in an Angular application. There are three types of
+        directives in Angular: structural directives, attribute directives, and
+        component directives. Structural directives change the structure of the
+        DOM, attribute directives change the appearance or behavior of an
+        element, and component directives are used to create reusable
+        components. Additionally, you can create custom directives to add
+        specific behavior to your application. By using directives effectively,
+        you can create dynamic and interactive user interfaces in your Angular
+        applications.
+      </p>
+    </div>
+  </div>
+</div>
