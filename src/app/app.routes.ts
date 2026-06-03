@@ -11,6 +11,7 @@ import { authGuard } from './guard/auth.guard';
 import { ComponentLifeCycleComponent } from './component-life-cycle/component-life-cycle.component';
 import { PipesComponent } from './pipes/pipes.component';
 import { DirectivesComponent } from './directives/directives.component';
+import { DataBindingComponent } from './data-binding/data-binding.component';
 
 export const routes: Routes = [
   {
@@ -55,6 +56,10 @@ export const routes: Routes = [
       {
         path: 'directives',
         component: DirectivesComponent
+      },
+      {
+        path: 'data-binding',
+        component: DataBindingComponent
       }
     ],
   },

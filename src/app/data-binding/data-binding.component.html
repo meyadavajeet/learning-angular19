@@ -1,0 +1,58 @@
+<h2>data-binding</h2>
+<div class="row">
+  <div class="col-sm-6">
+    1. Interpolation
+    <p>firstName - {{ firstName }}</p>
+    <div>rollno. {{ rollNo }}</div>
+    <span>isActive - {{ isActive }}</span>
+  </div>
+
+  <div class="col-sm-6">
+    2. property binding
+
+    <input class="form-control" type="text" [value]="firstName" />
+    <input class="form-control" type="text" [placeholder]="myPlaceHolder" />
+    <br />
+    <div [class]="div1ClassName" style="height: 100px; width: 100px"></div>
+  </div>
+</div>
+
+
+<div class="row pt-5">
+  3. Event Binding
+  <br>
+  <div class="col-sm-3">
+    <button class="btn btn-success" (click)="showWelcomeMessage()">
+      Show welcome message
+    </button>
+  </div>
+  <div class="col-sm-3">
+    <select class="form-control" (change)="onCityChange()">
+      <option value="Punjab">Punjab</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Ranchi">Ranchi</option>
+    </select>
+  </div>
+</div>
+
+
+<div class="row mt-5">
+  4. Two way data binding
+  - If we have to use the ngModel we need import FormsModule in the Component.ts file
+
+  <div class="col-sm-3">
+    <input type="text" [(ngModel)]="firstName">
+  </div>
+  <div class="col-sm-3">
+    <select class="form-control" [(ngModel)]="selectedCity">
+      <option value="Punjab">Punjab</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Ranchi">Ranchi</option>
+    </select>
+  </div>
+  <div class="col-sm-3">
+    Show selected city - {{selectedCity}}
+  </div>
+</div>
