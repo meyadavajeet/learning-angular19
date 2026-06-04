@@ -12,6 +12,8 @@ import { ComponentLifeCycleComponent } from './component-life-cycle/component-li
 import { PipesComponent } from './pipes/pipes.component';
 import { DirectivesComponent } from './directives/directives.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
+import { NgForComponent } from './ng-for/ng-for.component';
+import { NgIFComponent } from './ng-if/ng-if.component';
 
 export const routes: Routes = [
   {
@@ -56,6 +58,14 @@ export const routes: Routes = [
       {
         path: 'directives',
         component: DirectivesComponent
+      },
+      {
+        path: 'ngIf',
+        component: NgIFComponent
+      },
+      {
+        path: 'ngFor',
+        component: NgForComponent
       },
       {
         path: 'data-binding',

@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-sm-3">
+    <div *ngIf="isDivVisible" class="col-sm-3" style="height: 100px; width: 100px; background-color: blueviolet;">
+      div1
+    </div>
+    <button class="btn btn-success" (click)="showDiv()">Show</button>
+    <button class="btn btn-warning" (click)="hideDiv()">Hide</button>
+  </div>
+  <div class="col-sm-3">
+    <div *ngIf="number1 === number2" class="col-sm-3"
+      style="height: 100px; width: 100px; background-color: greenyellow;">div2
+    </div>
+    <input type="text" [(ngModel)]="number1">
+    <input type="text" [(ngModel)]="number2">
+  </div>
+  <div class="col-sm-3">
+  </div>
+</div>
