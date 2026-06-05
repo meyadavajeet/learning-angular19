@@ -14,6 +14,7 @@ import { DirectivesComponent } from './directives/directives.component';
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { NgForComponent } from './ng-for/ng-for.component';
 import { NgIFComponent } from './ng-if/ng-if.component';
+import { NgClassComponent } from './ng-class/ng-class.component';
 
 export const routes: Routes = [
   {
@@ -66,6 +67,10 @@ export const routes: Routes = [
       {
         path: 'ngFor',
         component: NgForComponent
+      },
+      {
+        path: 'ngClass',
+        component: NgClassComponent
       },
       {
         path: 'data-binding',

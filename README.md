@@ -103,3 +103,10 @@ npm i font-awesome
   - In two way data binding we have 1 way
     - using ngModel Directive
 
+## Directives
+  - Structural Directives
+    - *ngIF
+    - *ngFor
+  - Attribute Directive
+    - [ngClasss]
+    - [ngStyle]
