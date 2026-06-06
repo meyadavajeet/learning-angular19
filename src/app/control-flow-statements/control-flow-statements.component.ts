@@ -1,19 +1,18 @@
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Employee } from '../ng-for/ng-for.component';
 
-export interface Employee {
-  employeeId: number;
-  city: string;
-  name: string;
-  contactNo: number;
-}
 @Component({
-  selector: 'app-ng-for',
-  imports: [NgFor],
-  templateUrl: './ng-for.component.html',
-  styleUrl: './ng-for.component.css',
+  selector: 'app-control-flow-statements',
+  imports: [FormsModule],
+  templateUrl: './control-flow-statements.component.html',
+  styleUrl: './control-flow-statements.component.css',
 })
-export class NgForComponent {
+export class ControlFlowStatementsComponent {
+  isDiv1Visble: boolean = false;
+  isChecked: boolean = false;
+  dayName: string = '';
+
   cityList: string[] = [
     'Pune',
     'Kolkata',
@@ -55,4 +54,8 @@ export class NgForComponent {
       contactNo: 111111111,
     },
   ];
+
+  showHideBtn(val: boolean) {
+    this.isDiv1Visble = val;
+  }
 }

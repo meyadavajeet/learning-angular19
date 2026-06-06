@@ -16,11 +16,12 @@ import { NgForComponent } from './ng-for/ng-for.component';
 import { NgIFComponent } from './ng-if/ng-if.component';
 import { NgClassComponent } from './ng-class/ng-class.component';
 import { NgStyleComponent } from './ng-style/ng-style.component';
+import { ControlFlowStatementsComponent } from './control-flow-statements/control-flow-statements.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: LoginComponent,
+    redirectTo: 'login', // here we have to give the path name
     pathMatch: 'full',
   },
   {
@@ -80,6 +81,10 @@ export const routes: Routes = [
       {
         path: 'data-binding',
         component: DataBindingComponent
+      },
+      {
+        path: 'control-flow-statements',
+        component: ControlFlowStatementsComponent
       }
     ],
   },
