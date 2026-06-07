@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Template Form</h2>
+  <form #form="ngForm">
+    <div class="row">
+
+      <div class="col-sm-6">
+        <input type="text" class="form-control" name="firstName" #fname="ngModel" required
+          [(ngModel)]="userObj.firstName">
+        <div class="text-danger">
+          @if(fname.errors?.['required'] && fname.touched && fname.dirty){
+          <span>This is required</span>
+          }
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <input type="text" class="form-control" name="lastName" #lname="ngModel" required [(ngModel)]="userObj.lastName"
+          minlength="3">
+        <div class="text-danger">
+          <span *ngIf="lname.errors?.['required'] && lname.touched && lname.dirty">This is required</span>
+          <span *ngIf="lname.errors?.['minlength']">Min 4 character is required</span>
+        </div>
+      </div>
+      <div class="row p-3">
+        <div class="col-sm-6">
+          <button class="btn btn-success" type="button" [disabled]="form.invalid" (click)="onSave()">Save</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

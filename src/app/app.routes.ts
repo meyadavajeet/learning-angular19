@@ -17,6 +17,7 @@ import { NgIFComponent } from './ng-if/ng-if.component';
 import { NgClassComponent } from './ng-class/ng-class.component';
 import { NgStyleComponent } from './ng-style/ng-style.component';
 import { ControlFlowStatementsComponent } from './control-flow-statements/control-flow-statements.component';
+import { TemplateFormComponent } from './forms/template-form/template-form.component';
 
 export const routes: Routes = [
   {
@@ -60,32 +61,36 @@ export const routes: Routes = [
       },
       {
         path: 'directives',
-        component: DirectivesComponent
+        component: DirectivesComponent,
       },
       {
         path: 'ngIf',
-        component: NgIFComponent
+        component: NgIFComponent,
       },
       {
         path: 'ngFor',
-        component: NgForComponent
+        component: NgForComponent,
       },
       {
         path: 'ngClass',
-        component: NgClassComponent
+        component: NgClassComponent,
       },
       {
-        path : 'ngStyle',
-        component: NgStyleComponent
+        path: 'ngStyle',
+        component: NgStyleComponent,
       },
       {
         path: 'data-binding',
-        component: DataBindingComponent
+        component: DataBindingComponent,
       },
       {
         path: 'control-flow-statements',
-        component: ControlFlowStatementsComponent
-      }
+        component: ControlFlowStatementsComponent,
+      },
+      {
+        path: 'template-form',
+        component: TemplateFormComponent,
+      },
     ],
   },
   {
