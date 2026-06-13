@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { ProgressbarComponent } from "../reusable/progressbar/progressbar.component";
 
 @Component({
   selector: 'app-directives',
-  imports: [],
+  imports: [ProgressbarComponent],
   templateUrl: './directives.component.html',
   styleUrl: './directives.component.css',
 })

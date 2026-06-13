@@ -29,6 +29,7 @@
           <td>Name</td>
           <td>City</td>
           <td>Contact No.</td>
+          <td>Attendance</td>
         </tr>
       </thead>
       <tbody>
@@ -38,6 +39,7 @@
           <td>{{emp.name}}</td>
           <td>{{emp.city}}</td>
           <td>{{emp.contactNo}}</td>
+          <td><app-progressbar [progressValue]="emp?.attendance || 0"></app-progressbar></td>
         </tr>
       </tbody>
     </table>

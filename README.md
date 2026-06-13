@@ -111,3 +111,15 @@ npm i font-awesome
   - Attribute Directive
     - [ngClasss]
     - [ngStyle]
+
+
+
+## Reusable component-
+- @Input 
+- @Output
+- EventEmitter
+- How to create reusable component?
+
+
+
+

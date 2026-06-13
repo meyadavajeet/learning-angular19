@@ -1,9 +1,10 @@
 import { DatePipe, JsonPipe, LowerCasePipe, SlicePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
+import { ProgressbarComponent } from "../reusable/progressbar/progressbar.component";
 
 @Component({
   selector: 'app-pipes',
-  imports: [UpperCasePipe,LowerCasePipe,TitleCasePipe,DatePipe,JsonPipe,SlicePipe],
+  imports: [UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe, JsonPipe, SlicePipe, ProgressbarComponent],
   templateUrl: './pipes.component.html',
   styleUrl: './pipes.component.css'
 })
