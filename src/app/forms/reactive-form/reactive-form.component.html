@@ -1,1 +1,81 @@
-<p>reactive-form works!</p>
+<form class="row g-3" (ngSubmit)="onUserSave()" [formGroup]="userForm">
+  <div class="col-md-4">
+    <label class="form-label">First name <span class="text-danger">*</span> </label>
+    <input type="text" formControlName="fName" class="form-control" id="validationCustom01" value="Mark">
+    <div class="text-danger">
+      @if(userForm.controls['fName'].errors?.['required']&& userForm.controls['fName'].touched){
+      <span>First name is required</span>
+      }
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Last name<span class="text-danger">*</span></label>
+    <input type="text" formControlName="lName" class="form-control" id="validationCustom02" value="Otto">
+    <p>Touched: {{ userForm.controls['lName'].touched }}</p>
+    <p>Dirty: {{ userForm.controls['lName'].dirty }}</p>
+    <p>Pristine: {{ userForm.controls['lName'].pristine }}</p>
+    @if (userForm.controls['lName'].touched || userForm.controls['lName'].dirty) {
+    <div class="text-danger">
+      @if (userForm.controls['lName'].errors?.['required']) {
+      <span>Last name is required</span>
+      }
+
+      @if (userForm.controls['lName'].errors?.['minlength']) {
+      <span>Minimum 5 characters are required.</span>
+      }
+    </div>
+    }
+  </div>
+  <div class="col-md-4">
+    <label class="form-label">Username</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+      <input type="text" formControlName="userName" class="form-control" id="validationCustomUsername"
+        aria-describedby="inputGroupPrepend">
+      <div class="intext-danger">
+        Please choose a username.
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label class="form-label">City</label>
+    <input type="text" formControlName="city" class="form-control" id="validationCustom03">
+    <div class="intext-danger">
+      Please provide a valid city.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">State</label>
+    <select formControlName="state" class="form-select" id="validationCustom04">
+      <option selected disabled value="">Choose...</option>
+      <option value="Goa">Goa</option>
+      <option value="Jharkhand">Jharkhand</option>
+      <option value="west-bengal">West Bengal</option>
+      <option value="Hydrabad">Hydrabad</option>
+    </select>
+    <div class="intext-danger">
+      Please select a valid state.
+    </div>
+  </div>
+  <div class="col-md-3">
+    <label class="form-label">Zip</label>
+    <input type="text" formControlName="zip" class="form-control" id="validationCustom05">
+    <div class="intext-danger">
+      Please provide a valid zip.
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" formControlName="isAgree" value="" id="invalidCheck">
+      <label class="form-check-label">
+        Agree to terms and conditions
+      </label>
+      <div class="intext-danger">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" [disabled]="!userForm.valid" type="submit">Submit form</button>
+  </div>
+</form>
