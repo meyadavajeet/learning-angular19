@@ -1,10 +1,11 @@
 import { DatePipe, JsonPipe, LowerCasePipe, SlicePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { ProgressbarComponent } from "../reusable/progressbar/progressbar.component";
+import { TabsComponent } from "../reusable/tabs/tabs.component";
 
 @Component({
   selector: 'app-pipes',
-  imports: [UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe, JsonPipe, SlicePipe, ProgressbarComponent],
+  imports: [UpperCasePipe, LowerCasePipe, TitleCasePipe, DatePipe, JsonPipe, SlicePipe, ProgressbarComponent, TabsComponent],
   templateUrl: './pipes.component.html',
   styleUrl: './pipes.component.css'
 })
@@ -22,4 +23,11 @@ export class PipesComponent {
   }
 
   rollNo:number[] = [12,20,22,21,100,201]
+
+
+  currentTabName: string = 'New Bikes';
+  //
+  onTabChange(tabName: string){
+    this.currentTabName = tabName;
+  }
 }

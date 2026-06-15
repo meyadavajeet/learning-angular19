@@ -4,6 +4,19 @@
     <div class="col-sm-6">
       <app-progressbar [progressValue]="20"></app-progressbar>
     </div>
+    <div class="col-sm-6">
+      <app-tabs [tabList]="['Used Cars', 'New Cars', 'Used Bikes', 'New Bikes']" (onTabClicked)="onTabChange($event)"></app-tabs>
+      -- {{currentTabName}}
+    </div>
+    @if (currentTabName == 'Used Cars') {
+    <p>Used car section is here</p>
+    }@else if (currentTabName == 'New Cars') {
+    <p>New car section is here</p>
+    }@else if (currentTabName == 'Used Bikes') {
+    <p>Used Bikes section is here</p>
+    }@else {
+    <p>New Bikes section is here</p>
+    }
   </div>
   <div class="row">
     <div class="col-12">

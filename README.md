@@ -115,8 +115,8 @@ npm i font-awesome
 
 
 ## Reusable component-
-- @Input 
-- @Output
+- @Input - Passing data from parent to child
+- @Output - Passing data from child to parent using the event emitter
 - EventEmitter
 - How to create reusable component?
 
