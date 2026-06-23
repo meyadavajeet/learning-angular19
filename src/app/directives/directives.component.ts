@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 import { ProgressbarComponent } from '../reusable/progressbar/progressbar.component';
 import { TabsComponent } from '../reusable/tabs/tabs.component';
 
@@ -9,6 +9,13 @@ import { TabsComponent } from '../reusable/tabs/tabs.component';
   styleUrl: './directives.component.css',
 })
 export class DirectivesComponent {
+  // View Child Implementation
+  // get reference of the textbox
+  @ViewChild('myText') cityTextBox: ElementRef | undefined;
+
+  // get reference of the re-usable-component
+  @ViewChild(TabsComponent) myTabComponent: TabsComponent | undefined;
+
   myClassName: string = 'bg-warning';
 
   isActive: boolean = true;
@@ -24,4 +31,14 @@ export class DirectivesComponent {
   };
 
   @Input() customerTabs: string[] = ['Basic info', 'Plan info', 'Payments'];
+
+  readValue() {
+    debugger;
+    const city = this.cityTextBox?.nativeElement.value;
+    if (this.cityTextBox) {
+      this.cityTextBox.nativeElement.style.color = 'red';
+    }
+
+    const myTab = this.myTabComponent?.currentTab;
+  }
 }
